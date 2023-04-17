@@ -56,9 +56,9 @@ cron.schedule("0 */1 * * *", async () => {
     }
   }
 });
-
-app.listen(process.env.PORT || 500, () => {
-  console.log("Server is up at 5000");
+const port =process.env.PORT || 500
+app.listen(port, () => {
+  console.log(`Server is up at ${port}`);
   mongoose
     .connect(process.env.MONGO_URI)
     .then(() => console.log("Connection to Database is successful"))
