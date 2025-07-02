@@ -36,6 +36,7 @@ cron.schedule("0 */1 * * *", async () => {
     path: "userId",
     select: ["name", "email"],
   });
+  
   if (!allWebsites.length) return;
 
   for (let i = 0; i <= allWebsites.length; ++i) {
