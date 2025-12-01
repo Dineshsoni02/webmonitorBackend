@@ -15,6 +15,13 @@ const Schema = new mongoose.Schema({
   },
 });
 
+Schema.pre("save", function (next) {
+  this.isActive = true;
+  next();
+});
+
+Schema.index({ url: 1 }, { unique: true });
+
 const WebsiteSchema = mongoose.model("Website", Schema);
 
 module.exports = WebsiteSchema;
